@@ -8,7 +8,7 @@
   <Content type="html">
     <![CDATA[
       <script xmlns:os="http://ns.opensocial.org/2008/markup" type="text/os-data">
-         <os:HttpRequest format="text" key="google" href="http://www.google.com" method="get" />
+         <os:HttpRequest format="text" key="google" href="http://www.google.com" />
       </script>
 
       <script type="text/os-template" require="google" xmlns:os="http://ns.opensocial.org/2008/markup" xmlns:osx="http://ns.opensocial.org/2009/extensions">
