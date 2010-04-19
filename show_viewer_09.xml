@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+  <ModulePrefs title="Sample: Viewer 0.9">
+    <Require feature="opensocial-0.9" />
+  </ModulePrefs>
+  <Content type="html">
+    <![CDATA[
+    
+      <script type="text/javascript">        
+        gadgets.util.registerOnLoadHandler(function(){
+          osapi.people.getViewer({fields: ['name']}).execute(function(result) {
+            document.getElementById('viewer').innerHTML = result.name.givenName;
+          });
+        });
+      </script>
+      
+      <div>
+        Hello <span id='viewer'>...</span>!
+      </div>
+      
+    ]]>
+  </Content>
+</Module>
