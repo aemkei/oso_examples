@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+  <ModulePrefs title="Sample: Google Proxy">
+    <Require feature="opensocial-0.9" />    
+    <Require feature="opensocial-data" />
+    <Require feature="opensocial-templates" />
+  </ModulePrefs>
+  <Content type="html">
+    <![CDATA[
+      <script xmlns:os="http://ns.opensocial.org/2008/markup" type="text/os-data">
+         <os:HttpRequest format="text" key="google" href="http://www.google.com" method="get" />
+      </script>
+
+      <script type="text/os-template" require="google" xmlns:os="http://ns.opensocial.org/2008/markup" xmlns:osx="http://ns.opensocial.org/2009/extensions">
+         <os:Html code="${google.content}"/>
+      </script>
+    ]]>
+  </Content>
+</Module>
