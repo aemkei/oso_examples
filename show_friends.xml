@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+  <ModulePrefs title="Sample: Friend List">
+    <Require feature="opensocial-0.9"/>
+    <Require feature="dynamic-height" />
+  </ModulePrefs>
+  <Content type="html">
+    <![CDATA[
+      <script type="text/javascript">
+        
+        function loadFriends() {
+          var req = opensocial.newDataRequest();
+          req.add(req.newFetchPersonRequest(opensocial.IdSpec.PersonId.VIEWER), 'viewer');
+          
+          var viewerFriends = opensocial.newIdSpec({ "userId" : "VIEWER", "groupId" : "FRIENDS" });
+          var opt_params = {};
+          opt_params[opensocial.DataRequest.PeopleRequestFields.MAX] = 100;
+          req.add(req.newFetchPeopleRequest(viewerFriends, opt_params), 'viewerFriends');
+
+          req.send(onLoadFriends);
+        }
+
+        function onLoadFriends(data) {
+        
+          var viewer = data.get('viewer').getData(),
+            viewerFriends = data.get('viewerFriends').getData(),
+            html = "<ul>";
+            
+          viewerFriends.each(function(person) {
+            if (person.getId()) {
+              html += '<li>' + person.getDisplayName() + '</li>';
+            }
+          });
+          
+          html += "</ul>";
+          
+          document.getElementById('friends').innerHTML = html;
+          gadgets.window.adjustHeight();
+        }
+        
+        gadgets.util.registerOnLoadHandler(loadFriends);
+        
+      </script>
+      
+      <div id='main'>
+        My friends:
+        <div id='friends'></div>
+      </div>
+    ]]>
+  </Content>
+</Module>
