@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module> 
+  <ModulePrefs title="Sample: Views" />
+  <Content type="html" view="home">
+    <![CDATA[
+      Hello, small world!
+    ]]>  
+  </Content>
+  <Content type="html" view="canvas"> 
+    <![CDATA[
+      Hello, big world!
+    ]]> 
+  </Content>
+</Module>
