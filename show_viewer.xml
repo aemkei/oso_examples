@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+  <ModulePrefs title="Sample: Viewer">
+    <Require feature="opensocial-0.9"/>
+  </ModulePrefs>
+  <Content type="html">
+    <![CDATA[
+      <script type="text/javascript">
+        
+        function load() {
+          var req = opensocial.newDataRequest();
+          req.add(req.newFetchPersonRequest(opensocial.IdSpec.PersonId.VIEWER), 'viewer');
+          req.send(onLoad);
+        }
+
+        function onLoad(data) {
+          var viewer = data.get('viewer').getData();
+          document.getElementById('viewer').innerHTML = viewer.getDisplayName();
+        }
+        
+        gadgets.util.registerOnLoadHandler(load);
+      </script>
+      
+      <div id='main'>
+        Hello <span id='viewer'></span>!
+      </div>
+      
+    ]]>
+  </Content>
+</Module>
