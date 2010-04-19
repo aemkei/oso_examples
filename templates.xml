@@ -8,7 +8,7 @@
   <Content type="html">
     <![CDATA[      
       <script xmlns:os="http://ns.opensocial.org/2008/markup" type="text/os-data">
-        <os:PeopleRequest key="friends" userId="@viewer" groupId="@friends"/>
+        <os:DataRequest key="friends" method="people.get" userId="@owner" groupId="@friends" startIndex="0" count="10"/>
       </script>
  
       <script type="text/os-template">
