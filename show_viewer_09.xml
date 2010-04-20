@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
-  <ModulePrefs title="Sample: Viewer 0.9">
-    <Require feature="opensocial-0.9" />
+  <ModulePrefs title="Sample: Viewer OSAPI">
+    <Require feature="osapi" />
   </ModulePrefs>
   <Content type="html">
     <![CDATA[
